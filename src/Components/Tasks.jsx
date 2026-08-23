@@ -130,7 +130,7 @@ export default function Tasks() {
           }
         });
 
-        setClient_Data([...client_data, client_data[1].content.push(task_obj)]);
+        setClient_Data([...client_data, client_data?.[1]?.content.push(task_obj)]);
         setPersonal_Content({ ...personal_content, client_data: client_data });
         localStorage.setItem(
           "clients_content",

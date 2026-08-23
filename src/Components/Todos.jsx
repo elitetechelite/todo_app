@@ -155,7 +155,7 @@ export default function Todos() {
           }
         });
 
-        setClient_Data([...client_data, client_data[0].content.push(todo_obj)]);
+        setClient_Data([...client_data, client_data?.[0]?.content.push(todo_obj)]);
         setPersonal_Content({ ...personal_content, client_data: client_data });
         localStorage.setItem(
           "clients_content",
