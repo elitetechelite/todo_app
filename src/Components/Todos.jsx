@@ -304,7 +304,7 @@ export default function Todos() {
       </div>
       <div className="second">
         <div className="todo-cards">
-          {todos_avail[0].length != 0 || todos_avail[0].length != "" ? (
+          {todos_avail?.[0]?.length > 0 ? (
             todos_avail[0].map((todo, i) => (
               <div
                 key={`${i}_${todo.todo_id}`}

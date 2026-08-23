@@ -295,7 +295,7 @@ export default function Budget() {
           </div>
         </div>
         <div className="todo-cards">
-          {items_avail[0].length != 0 ? (
+          {items_avail?.[0]?.length > 0 ? (
             items_avail[0].map((item, i) => (
               <div
                 key={`${i}_${item.item_id}`}

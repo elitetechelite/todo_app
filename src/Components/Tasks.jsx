@@ -273,7 +273,7 @@ export default function Tasks() {
       </div>
       <div className="second">
         <div className="todo-cards">
-          {task_avail[0].length != 0 ? (
+          {task_avail?.[0]?.length > 0 ? (
             task_avail[0].map((task, i) => (
               <div
                 key={`${i}_${task.task_id}`}
