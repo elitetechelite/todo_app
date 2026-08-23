@@ -26,6 +26,13 @@ function App() {
   }
 
   useEffect(() => {
+    let localData =
+      JSON.parse(localStorage.getItem("clients_content")) ||
+      localStorage.setItem("clients_content", JSON.stringify([]));
+    let localData_2 =
+      JSON.parse(localStorage.getItem("clients_data")) ||
+      localStorage.setItem("clients_data", JSON.stringify([]));
+    // let localData_3 = JSON.parse(localStorage.getItem("clients_data")) || localStorage.setItem("clients_data",JSON.stringify([]))
     if (location.pathname == "") {
       // location.href = "/home/todos";
       navigate("/home/todos");
