@@ -1,0 +1,107 @@
+/* Side Bar */
+.sidebar-dv {
+  width: 00%;
+  height: 100%;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  background: rgba(83, 9, 80, 0.1);
+  backdrop-filter: blur(10);
+  -webkit-backdrop-filter: blur(10);
+  transition: 0.2s all;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+.sidebar-dv .sidebar {
+  width: 60%;
+  height: 100%;
+  background: #a0430a;
+  background: linear-gradient(0deg, #a0430a, #6e6864);
+  border-top-right-radius: 0.8em;
+  border-bottom-right-radius: 0.8em;
+}
+.sidebar-dv .sidebar .head {
+  width: 100%;
+  height: 30px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: right;
+  /* border: 1px solid navy; */
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.sidebar-dv .sidebar .head img {
+  margin-right: 5px;
+  cursor: pointer;
+  transition: 0.2s all;
+  border-radius: 50%;
+  -webkit-tap-highlight-color: transparent;
+}
+.sidebar-dv .sidebar .bdy {
+  margin-top: 50px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  width: 100%;
+  /* border: 2px solid navy; */
+}
+.sidebar-dv .sidebar .tabs {
+  width: 95%;
+  margin: 0 auto;
+}
+.sidebar-dv .sidebar .tabs .tab {
+  -webkit-tap-highlight-color: transparent;
+  width: 70%;
+  color: whitesmoke;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 10px;
+  border-radius: 14px;
+  transition: 0.1s all;
+  cursor: pointer;
+  margin-left: 10px;
+}
+.sidebar-dv .sidebar .tabs .tab:hover {
+  background: #a0430a;
+}
+.sidebar-dv .sidebar .tabs .tab img {
+  width: 17px;
+  /* height: 17px; */
+  border-radius: 50%;
+  padding: 4px;
+  background: gray;
+  cursor: pointer;
+  transition: 0.2s all;
+  -webkit-tap-highlight-color: red;
+}
+.sidebar-dv .sidebar .tabs a {
+  text-decoration: none;
+}
+.sidebar-dv .sidebar .tabs .tab span {
+  color: #dfe8e6;
+  font-size: 20px;
+  margin-left: 10px;
+  font-weight: bolder;
+}
+
+.sidebar-dv .sidebar_empty {
+  width: 40%;
+  height: 100%;
+  background: transparent;
+}
+.sidebar-dv .logout-btn {
+  margin-top: 400px;
+  margin-left: 15px;
+  width: 100px;
+  padding: 8px;
+  border: 1px solid #dfe8e6;
+  background: #a0430a;
+  color: #dfe8e6;
+  border-radius: 0.4em;
+
+  transition: all 0.2s ease-in-out;
+}
