@@ -104,35 +104,29 @@ export default function Todos() {
     });
   }
   useEffect(() => {
-    console.log("____________");
-    if (personal_content) {
-      localStorage.setItem("clients_content", JSON.stringify(clients_content));
-    } else {
-      console.log("NAAHHHHH...");
-    }
-    // clients_content.forEach((client) => {
-    //   if (client.client_id == my_client_id) {
-    //     setPersonal_Content(client);
-    //     setClient_Data(client.client_data);
-    //     // user_data.total_todos = client.total_todos;
-    //     // setPersonal_Content({ ...personal_content, total_todos: 10 });
-    //     client.client_data.forEach((data) => {
-    //       if (data.doc_name == "todos") {
-    //         // user_data.todos = data;
-    //         // setPersonal_Content({ ...personal_content, todos: data });
-    //       }
-    //     });
-    //   } else {
-    //   }
-    // });
+    clients_content.forEach((client) => {
+      if (client.client_id == my_client_id) {
+        setPersonal_Content(client);
+        setClient_Data(client.client_data);
+        // user_data.total_todos = client.total_todos;
+        // setPersonal_Content({ ...personal_content, total_todos: 10 });
+        client.client_data.forEach((data) => {
+          if (data.doc_name == "todos") {
+            // user_data.todos = data;
+            // setPersonal_Content({ ...personal_content, todos: data });
+          }
+        });
+      } else {
+      }
+    });
 
-    // if (logged_user !== "") {
-    //   my_client_id = logged_user.loggedin_client;
-    // } else {
-    //   console.log("Noo client id found LS");
-    // }
-    // loginCheck();
-  }, [personal_content]);
+    if (logged_user !== "") {
+      my_client_id = logged_user.loggedin_client;
+    } else {
+      console.log("Noo client id found LS");
+    }
+    loginCheck();
+  }, []);
 
   //handle todo creation
 
@@ -161,38 +155,37 @@ export default function Todos() {
           }
         });
 
-        // setClient_Data([
-        //   ...client_data,
-        //   client_data[0]?.content.push(todo_obj),
-        // ]);
-        // setPersonal_Content({ ...personal_content, client_data: client_data });
-        // localStorage.setItem(
-        //   "clients_content",
-        //   JSON.stringify(clients_content),
-        // );
+        setClient_Data([
+          ...client_data,
+          client_data[0]?.content.push(todo_obj),
+        ]);
+        setPersonal_Content({ ...personal_content, client_data: client_data });
+        localStorage.setItem(
+          "clients_content",
+          JSON.stringify(clients_content),
+        );
 
-        const updatedClientData = [...client_data];
+        // const updatedClientData = [...client_data];
         // if (updatedClientData[0]) {
-        updatedClientData[0] = {
-          ...updatedClientData[0],
-          content: [...(updatedClientData[0].content || []), todo_obj],
-        };
+        //   updatedClientData[0] = {
+        //     ...updatedClientData[0],
+        //     content: [...(updatedClientData[0].concat || []), todo_obj],
+        //   };
 
-        const updatedPersonalContent = {
-          ...personal_content,
-          client_data: updatedClientData,
-        };
+        //   const updatedPersonalContent = {
+        //     ...personal_content,
+        //     client_data: updatedClientData,
+        //   };
 
-        setClient_Data(updatedClientData);
-        setPersonal_Content(updatedPersonalContent);
+        //   setClient_Data(updatedClientData);
+        //   setPersonal_Content(updatedPersonalContent);
 
-        // localStorage.setItem(
-        //   "clients_content",
-        //   JSON.stringify(updatedPersonalContent),
-        // );
+        //   localStorage.setItem(
+        //     "clients_content",
+        //     JSON.stringify(updatedPersonalContent),
+        //   );
         // } else {
-        console.log("Noooooooooo");
-        console.log("OBJ: ", todo_obj);
+        //   console.log("Noooooooooo");
         // }
 
         // console.log("PERSONAL C: ", personal_content);
