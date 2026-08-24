@@ -104,6 +104,7 @@ export default function Todos() {
     });
   }
   useEffect(() => {
+    console.log("____________");
     if (personal_content) {
       localStorage.setItem("clients_content", JSON.stringify(clients_content));
     } else {
