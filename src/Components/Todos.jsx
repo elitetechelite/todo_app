@@ -150,15 +150,15 @@ export default function Todos() {
           if (client.client_id == my_client_id) {
             setPersonal_Content(client);
             setClient_Data(client.client_data);
-            setClient_Data([
-              ...client_data,
-              client_data[0]?.content.push(todo_obj),
-            ]);
           } else {
             // console.log("No Client Data ");
           }
         });
 
+        setClient_Data([
+          ...client_data,
+          client_data[0]?.content.push(todo_obj),
+        ]);
         setPersonal_Content({ ...personal_content, client_data: client_data });
         localStorage.setItem(
           "clients_content",
