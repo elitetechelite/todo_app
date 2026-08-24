@@ -104,7 +104,7 @@ export default function Todos() {
     });
   }
   useEffect(() => {
-    if (clients_content) {
+    if (personal_content) {
       localStorage.setItem("clients_content", JSON.stringify(clients_content));
     } else {
       console.log("NAAHHHHH...");
@@ -131,7 +131,7 @@ export default function Todos() {
       console.log("Noo client id found LS");
     }
     loginCheck();
-  }, [clients_content]);
+  }, [personal_content]);
 
   //handle todo creation
 
