@@ -109,28 +109,28 @@ export default function Todos() {
     } else {
       console.log("NAAHHHHH...");
     }
-    clients_content.forEach((client) => {
-      if (client.client_id == my_client_id) {
-        setPersonal_Content(client);
-        setClient_Data(client.client_data);
-        // user_data.total_todos = client.total_todos;
-        // setPersonal_Content({ ...personal_content, total_todos: 10 });
-        client.client_data.forEach((data) => {
-          if (data.doc_name == "todos") {
-            // user_data.todos = data;
-            // setPersonal_Content({ ...personal_content, todos: data });
-          }
-        });
-      } else {
-      }
-    });
+    // clients_content.forEach((client) => {
+    //   if (client.client_id == my_client_id) {
+    //     setPersonal_Content(client);
+    //     setClient_Data(client.client_data);
+    //     // user_data.total_todos = client.total_todos;
+    //     // setPersonal_Content({ ...personal_content, total_todos: 10 });
+    //     client.client_data.forEach((data) => {
+    //       if (data.doc_name == "todos") {
+    //         // user_data.todos = data;
+    //         // setPersonal_Content({ ...personal_content, todos: data });
+    //       }
+    //     });
+    //   } else {
+    //   }
+    // });
 
-    if (logged_user !== "") {
-      my_client_id = logged_user.loggedin_client;
-    } else {
-      console.log("Noo client id found LS");
-    }
-    loginCheck();
+    // if (logged_user !== "") {
+    //   my_client_id = logged_user.loggedin_client;
+    // } else {
+    //   console.log("Noo client id found LS");
+    // }
+    // loginCheck();
   }, [personal_content]);
 
   //handle todo creation
