@@ -104,6 +104,9 @@ export default function Todos() {
     });
   }
   useEffect(() => {
+    if (clients_content) {
+      localStorage.setItem("clients_content", JSON.stringify(clients_content));
+    }
     clients_content.forEach((client) => {
       if (client.client_id == my_client_id) {
         setPersonal_Content(client);
@@ -126,7 +129,7 @@ export default function Todos() {
       console.log("Noo client id found LS");
     }
     loginCheck();
-  }, []);
+  }, [clients_content]);
 
   //handle todo creation
 
@@ -155,38 +158,38 @@ export default function Todos() {
           }
         });
 
-        // setClient_Data([
-        //   ...client_data,
-        //   client_data[0]?.content.push(todo_obj),
-        // ]);
-        // setPersonal_Content({ ...personal_content, client_data: client_data });
+        setClient_Data([
+          ...client_data,
+          client_data[0]?.content.push(todo_obj),
+        ]);
+        setPersonal_Content({ ...personal_content, client_data: client_data });
         // localStorage.setItem(
         //   "clients_content",
         //   JSON.stringify(clients_content),
         // );
 
-        const updatedClientData = [...client_data];
-        if (updatedClientData[0]) {
-          updatedClientData[0] = {
-            ...updatedClientData[0],
-            content: [...(updatedClientData[0].concat || []), todo_obj],
-          };
+        // const updatedClientData = [...client_data];
+        // if (updatedClientData[0]) {
+        //   updatedClientData[0] = {
+        //     ...updatedClientData[0],
+        //     content: [...(updatedClientData[0].concat || []), todo_obj],
+        //   };
 
-          const updatedPersonalContent = {
-            ...personal_content,
-            client_data: updatedClientData,
-          };
+        //   const updatedPersonalContent = {
+        //     ...personal_content,
+        //     client_data: updatedClientData,
+        //   };
 
-          setClient_Data(updatedClientData);
-          setPersonal_Content(updatedPersonalContent);
+        //   setClient_Data(updatedClientData);
+        //   setPersonal_Content(updatedPersonalContent);
 
-          localStorage.setItem(
-            "clients_content",
-            JSON.stringify(updatedPersonalContent),
-          );
-        } else {
-          console.log("Noooooooooo");
-        }
+        //   localStorage.setItem(
+        //     "clients_content",
+        //     JSON.stringify(updatedPersonalContent),
+        //   );
+        // } else {
+        //   console.log("Noooooooooo");
+        // }
 
         // console.log("PERSONAL C: ", personal_content);
         // console.log("All Clients: ", clients_content);
