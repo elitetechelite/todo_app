@@ -184,6 +184,8 @@ export default function Todos() {
             "clients_content",
             JSON.stringify(updatedPersonalContent),
           );
+        } else {
+          console.log("Noooooooooo");
         }
 
         // console.log("PERSONAL C: ", personal_content);
