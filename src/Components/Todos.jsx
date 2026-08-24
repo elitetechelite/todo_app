@@ -175,7 +175,7 @@ export default function Todos() {
         // if (updatedClientData[0]) {
         updatedClientData[0] = {
           ...updatedClientData[0],
-          content: [...(updatedClientData[0].concat || []), todo_obj],
+          content: [...(updatedClientData[0].content || []), todo_obj],
         };
 
         const updatedPersonalContent = {
