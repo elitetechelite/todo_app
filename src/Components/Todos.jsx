@@ -192,6 +192,7 @@ export default function Todos() {
           // );
         } else {
           console.log("Noooooooooo");
+          console.log("OBJ: ", todo_obj);
         }
 
         // console.log("PERSONAL C: ", personal_content);
