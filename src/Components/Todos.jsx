@@ -155,15 +155,36 @@ export default function Todos() {
           }
         });
 
-        setClient_Data([
-          ...client_data,
-          client_data[0]?.content.push(todo_obj),
-        ]);
-        setPersonal_Content({ ...personal_content, client_data: client_data });
-        localStorage.setItem(
-          "clients_content",
-          JSON.stringify(clients_content),
-        );
+        // setClient_Data([
+        //   ...client_data,
+        //   client_data[0]?.content.push(todo_obj),
+        // ]);
+        // setPersonal_Content({ ...personal_content, client_data: client_data });
+        // localStorage.setItem(
+        //   "clients_content",
+        //   JSON.stringify(clients_content),
+        // );
+
+        const updatedClientData = [...client_data];
+        if (updatedClientData[0]) {
+          updatedClientData[0] = {
+            ...updatedClientData[0],
+            content: [...(updatedClientData[0].concat || []), todo_obj],
+          };
+
+          const updatedPersonalContent = {
+            ...personal_content,
+            client_data: updatedClientData,
+          };
+
+          setClient_Data(updatedClientData);
+          setPersonal_Content(updatedPersonalContent);
+
+          localStorage.setItem(
+            "clients_content",
+            JSON.stringify(updatedPersonalContent),
+          );
+        }
 
         // console.log("PERSONAL C: ", personal_content);
         // console.log("All Clients: ", clients_content);
