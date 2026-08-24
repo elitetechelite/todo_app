@@ -107,7 +107,7 @@ export default function Todos() {
     if (clients_content) {
       localStorage.setItem("clients_content", JSON.stringify(clients_content));
     } else {
-      console.log("NAAHHHHH");
+      console.log("NAAHHHHH...");
     }
     clients_content.forEach((client) => {
       if (client.client_id == my_client_id) {
