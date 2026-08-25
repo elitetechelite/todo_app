@@ -30,17 +30,29 @@ export default function Todos() {
       creation_date: "",
     },
   });
-  const [clients_content, setClients_Content] = useState(
-    JSON.parse(localStorage.getItem("clients_content")) || [],
-  );
+  // const [clients_content, setClients_Content] = useState(
+  //   JSON.parse(localStorage.getItem("clients_content")) || [],
+  // );
+  const [clients_content, setClients_Content] = useState(() => {
+    if (typeof window !== "undefined") {
+      return JSON.parse(localStorage.getItem("clients_content")) || [];
+    }
+    return [];
+  });
   const [personal_content, setPersonal_Content] = useState({
     total_todos: "",
     todos: {},
   });
   const [client_data, setClient_Data] = useState("");
-  const [logged_in_user_dets, setLogged_In_User_Dets] = useState(
-    JSON.parse(localStorage.getItem("login_meta_data")),
-  );
+  // const [logged_in_user_dets, setLogged_In_User_Dets] = useState(
+  //   JSON.parse(localStorage.getItem("login_meta_data")),
+  // );
+  const [logged_in_user_dets, setLogged_In_User_Dets] = useState(() => {
+    if (typeof window !== "undefined") {
+      return JSON.parse(localStorage.getItem("login_meta_data")) || null;
+    }
+    return null;
+  });
   const [todos_avail, setTodos_Avail] = useState(
     clients_content.map(
       (client) =>
@@ -81,7 +93,7 @@ export default function Todos() {
   }
 
   let my_client_id = "";
-  let logged_user = JSON.parse(localStorage.getItem("login_meta_data")) || "";
+  // let logged_user = JSON.parse(localStorage.getItem("login_meta_data")) || "";
   function getData() {
     let user_data = { todos: [], total_todos: 0 };
     // let user_total_todos = 0;
@@ -104,6 +116,11 @@ export default function Todos() {
     });
   }
   useEffect(() => {
+    let logged_user = "";
+    if (typeof window !== "undefined") {
+      logged_user = JSON.parse(localStorage.getItem("login_meta_data")) || "";
+    }
+
     clients_content.forEach((client) => {
       if (client.client_id == my_client_id) {
         setPersonal_Content(client);
@@ -125,6 +142,7 @@ export default function Todos() {
     } else {
       console.log("Noo client id found LS");
     }
+
     loginCheck();
   }, []);
 
@@ -157,7 +175,7 @@ export default function Todos() {
 
         setClient_Data([
           ...client_data,
-          client_data[0]?.content.push(todo_obj),
+          client_data[0].content.push(todo_obj),
         ]);
         setPersonal_Content({ ...personal_content, client_data: client_data });
         localStorage.setItem(
