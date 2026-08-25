@@ -30,24 +30,51 @@ export default function Todos() {
       creation_date: "",
     },
   });
-  const [clients_content, setClients_Content] = useState(
-    JSON.parse(localStorage.getItem("clients_content")) || [],
-  );
+  // const [clients_content, setClients_Content] = useState(
+  //   JSON.parse(localStorage.getItem("clients_content")) || [],
+  // );
+  const [clients_content, setClients_Content] = useState(() => {
+    if (typeof window !== "undefined") {
+      return JSON.parse(localStorage.getItem("clients_content")) || [];
+    }
+    return [];
+  });
   const [personal_content, setPersonal_Content] = useState({
     total_todos: "",
     todos: {},
   });
   const [client_data, setClient_Data] = useState("");
-  const [logged_in_user_dets, setLogged_In_User_Dets] = useState(
-    JSON.parse(localStorage.getItem("login_meta_data")),
-  );
-  const [todos_avail, setTodos_Avail] = useState(
-    clients_content.map(
-      (client) =>
-        client.client_id == logged_in_user_dets.loggedin_client &&
-        client.client_data[0].content,
-    ),
-  );
+  // const [logged_in_user_dets, setLogged_In_User_Dets] = useState(
+  //   JSON.parse(localStorage.getItem("login_meta_data")),
+  // );
+  const [logged_in_user_dets, setLogged_In_User_Dets] = useState(() => {
+    if (typeof window !== "undefined") {
+      return JSON.parse(localStorage.getItem("login_meta_data")) || null;
+    }
+    return null;
+  });
+  // const [todos_avail, setTodos_Avail] = useState(
+  //   clients_content.map(
+  //     (client) =>
+  //       client.client_id == logged_in_user_dets.loggedin_client &&
+  //       client.client_data[0].content,
+  //   ),
+  // );
+  const [todos_avail, setTodos_Avail] = useState(() => {
+    // If there is no logged in user data, return an empty array
+    if (!logged_in_user_dets || !clients_content) return [];
+
+    return clients_content
+      .map((client) => {
+        if (client.client_id === logged_in_user_dets.loggedin_client) {
+          // Use ?. to safely check if client_data[0] exists before reading .content
+          return client.client_data?.[0]?.content || [];
+        }
+        return [];
+      })
+      .flat(); // Cleans up the mapped array structure
+  });
+
   const [active_todo_data, setActive_Todo_Data] = useState({
     todo_doc_index: "",
     todo_doc_id: "",
@@ -81,7 +108,7 @@ export default function Todos() {
   }
 
   let my_client_id = "";
-  let logged_user = JSON.parse(localStorage.getItem("login_meta_data")) || "";
+  // let logged_user = JSON.parse(localStorage.getItem("login_meta_data")) || "";
   function getData() {
     let user_data = { todos: [], total_todos: 0 };
     // let user_total_todos = 0;
@@ -104,6 +131,11 @@ export default function Todos() {
     });
   }
   useEffect(() => {
+    let logged_user = "";
+    if (typeof window !== "undefined") {
+      logged_user = JSON.parse(localStorage.getItem("login_meta_data")) || "";
+    }
+
     clients_content.forEach((client) => {
       if (client.client_id == my_client_id) {
         setPersonal_Content(client);
@@ -125,6 +157,7 @@ export default function Todos() {
     } else {
       console.log("Noo client id found LS");
     }
+
     loginCheck();
   }, []);
 
@@ -164,29 +197,6 @@ export default function Todos() {
           "clients_content",
           JSON.stringify(clients_content),
         );
-
-        // const updatedClientData = [...client_data];
-        // if (updatedClientData[0]) {
-        //   updatedClientData[0] = {
-        //     ...updatedClientData[0],
-        //     content: [...(updatedClientData[0].concat || []), todo_obj],
-        //   };
-
-        //   const updatedPersonalContent = {
-        //     ...personal_content,
-        //     client_data: updatedClientData,
-        //   };
-
-        //   setClient_Data(updatedClientData);
-        //   setPersonal_Content(updatedPersonalContent);
-
-        //   localStorage.setItem(
-        //     "clients_content",
-        //     JSON.stringify(updatedPersonalContent),
-        //   );
-        // } else {
-        //   console.log("Noooooooooo");
-        // }
 
         // console.log("PERSONAL C: ", personal_content);
         // console.log("All Clients: ", clients_content);
