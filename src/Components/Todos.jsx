@@ -165,29 +165,6 @@ export default function Todos() {
           JSON.stringify(clients_content),
         );
 
-        // const updatedClientData = [...client_data];
-        // if (updatedClientData[0]) {
-        //   updatedClientData[0] = {
-        //     ...updatedClientData[0],
-        //     content: [...(updatedClientData[0].concat || []), todo_obj],
-        //   };
-
-        //   const updatedPersonalContent = {
-        //     ...personal_content,
-        //     client_data: updatedClientData,
-        //   };
-
-        //   setClient_Data(updatedClientData);
-        //   setPersonal_Content(updatedPersonalContent);
-
-        //   localStorage.setItem(
-        //     "clients_content",
-        //     JSON.stringify(updatedPersonalContent),
-        //   );
-        // } else {
-        //   console.log("Noooooooooo");
-        // }
-
         // console.log("PERSONAL C: ", personal_content);
         // console.log("All Clients: ", clients_content);
       } else if (todo_save_flag == "edit_todo") {
