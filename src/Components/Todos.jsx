@@ -348,7 +348,7 @@ export default function Todos() {
       if (client.client_id == logged_user.loggedin_client) {
         setClients_Content([
           ...clients_content,
-          clients_content[i].client_data[0].content.plice(todo_doc_index, 1),
+          clients_content[i].client_data[0].content.splice(todo_doc_index, 1),
         ]);
         console.log("CLient DataCo: ", personal_content);
       } else {
