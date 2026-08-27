@@ -155,6 +155,7 @@ export default function Todos() {
           }
         });
 
+        console.log("Client DAT: ", client_data);
         clients_content.forEach((client) => {
           if (client.client_id == my_client_id) {
             setPersonal_Content(client);
@@ -170,7 +171,10 @@ export default function Todos() {
           } else {
           }
         });
-        setClient_Data([...client_data, client_data[0]=".content.push(todo_obj)"]);
+        setClient_Data([
+          ...client_data,
+          (client_data = ".content.push(todo_obj)"),
+        ]);
         setPersonal_Content({
           ...personal_content,
           client_data: client_data,
