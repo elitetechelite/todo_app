@@ -131,7 +131,21 @@ export default function Budget() {
           }
         });
 
-        setClient_Data([...client_data, client_data[2].content.push(item_obj)]);
+        clients_content.forEach((client, i) => {
+          if (client.client_id == logged_user.loggedin_client) {
+            setClients_Content([
+              ...clients_content,
+              clients_content[i].client_data[2].content.push(item_obj),
+            ]);
+            console.log("CLient DataCo: ", personal_content);
+          } else {
+            console.log("CLient DataCo: NULLL");
+            console.log("CID-1: ", client.client_id);
+            console.log("CID-2: ", logged_user.loggedin_client);
+          }
+        });
+
+        // setClient_Data([...client_data, client_data[2].content.push(item_obj)]);
         setPersonal_Content({ ...personal_content, client_data: client_data });
         localStorage.setItem(
           "clients_content",
