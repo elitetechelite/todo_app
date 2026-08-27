@@ -130,7 +130,21 @@ export default function Tasks() {
           }
         });
 
-        setClient_Data([...client_data, client_data[1].content.push(task_obj)]);
+        clients_content.forEach((client, i) => {
+          if (client.client_id == logged_user.loggedin_client) {
+            setClients_Content([
+              ...clients_content,
+              clients_content[i].client_data[1].content.push(task_obj),
+            ]);
+            console.log("CLient DataCo: ", personal_content);
+          } else {
+            console.log("CLient DataCo: NULLL");
+            console.log("CID-1: ", client.client_id);
+            console.log("CID-2: ", logged_user.loggedin_client);
+          }
+        });
+
+        // setClient_Data([...client_data, client_data[1].content.push(task_obj)]);
         setPersonal_Content({ ...personal_content, client_data: client_data });
         localStorage.setItem(
           "clients_content",
@@ -152,12 +166,32 @@ export default function Tasks() {
             // console.log("No Client Data ");
           }
         });
+
+        clients_content.forEach((client, i) => {
+          if (client.client_id == logged_user.loggedin_client) {
+            setClients_Content([
+              ...clients_content,
+              (clients_content[i].client_data[1].content[
+                task_doc_index
+              ].task_name = Task_name),
+              (clients_content[i].client_data[1].content[
+                task_doc_index
+              ].task_cost = Task_cost),
+            ]);
+            console.log("CLient DataCo: ", personal_content);
+          } else {
+            console.log("CLient DataCo: NULLL BUDGET");
+            console.log("CID-1: ", client.client_id);
+            console.log("CID-2: ", logged_user.loggedin_client);
+          }
+        });
+
         console.log("NAMMM: ", Task_name, "IDEXXX: ", task_doc_index);
-        setClient_Data([
-          ...client_data,
-          ((client_data[1].content[task_doc_index].task_name = Task_name),
-          (client_data[1].content[task_doc_index].task_cost = Task_cost)),
-        ]);
+        // setClient_Data([
+        //   ...client_data,
+        //   ((client_data[1].content[task_doc_index].task_name = Task_name),
+        //   (client_data[1].content[task_doc_index].task_cost = Task_cost)),
+        // ]);
 
         setPersonal_Content({ ...personal_content, client_data: client_data });
 
