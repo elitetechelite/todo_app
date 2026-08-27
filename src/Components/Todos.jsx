@@ -62,6 +62,25 @@ export default function Todos() {
     let index = e.target.className.split(" ")[1].split("_")[0];
     console.log("Button clicked");
 
+    clients_content.forEach((client, i) => {
+      if (client.client_id == logged_user.loggedin_client) {
+        setClients_Content([
+          ...clients_content,
+          clients_content[i].client_data[0].content[index].todo_status ==
+          "pending"
+            ? (clients_content[i].client_data[0].content[index].todo_status =
+                "completed")
+            : (clients_content[i].client_data[0].content[index].todo_status =
+                "pending"),
+        ]);
+        console.log("CLient DataCo: ", personal_content);
+      } else {
+        console.log("CLient DataCo: NULLL");
+        console.log("CID-1: ", client.client_id);
+        console.log("CID-2: ", logged_user.loggedin_client);
+      }
+    });
+
     clients_content.forEach((client) => {
       if (client.client_id == my_client_id) {
         setPersonal_Content(client);
