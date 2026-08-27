@@ -159,8 +159,8 @@ export default function Todos() {
             console.log("CLient DataCo: ", personal_content);
           } else {
             console.log("CLient DataCo: NULLL");
-            console.log("CID: ", client.client_id);
-            console.log("CID-2: ", my_client_id);
+            console.log("CID-1: ", client.client_id);
+            console.log("CID-2: ", logged_user.loggedin_client);
           }
         });
         // setClients_Content(()=>{})
