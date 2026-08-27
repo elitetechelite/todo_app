@@ -89,12 +89,12 @@ export default function Todos() {
         // console.log("No Client Data ");
       }
     });
-    setClient_Data([
-      ...client_data,
-      client_data[0].content[index].todo_status == "pending"
-        ? (client_data[0].content[index].todo_status = "completed")
-        : (client_data[0].content[index].todo_status = "pending"),
-    ]);
+    // setClient_Data([
+    //   ...client_data,
+    //   client_data[0].content[index].todo_status == "pending"
+    //     ? (client_data[0].content[index].todo_status = "completed")
+    //     : (client_data[0].content[index].todo_status = "pending"),
+    // ]);
     setPersonal_Content({ ...personal_content, client_data: client_data });
     localStorage.setItem("clients_content", JSON.stringify(clients_content));
   }
