@@ -154,27 +154,14 @@ export default function Todos() {
             // console.log("No Client Data ");
           }
         });
-        console.log("Client DAT: ", client_data);
-        clients_content.forEach((client) => {
-          if (client.client_id == my_client_id) {
-            setPersonal_Content(client);
-            setClient_Data(client.client_data);
-            // user_data.total_todos = client.total_todos;
-            // setPersonal_Content({ ...personal_content, total_todos: 10 });
-            client.client_data.forEach((data) => {
-              if (data.doc_name == "todos") {
-                // user_data.todos = data;
-                // setPersonal_Content({ ...personal_content, todos: data });
-              }
-            });
-          } else {
-          }
-        });
-        setClient_Data([...client_data, client_data[0].content.push(todo_obj)]);
-        setPersonal_Content({
-          ...personal_content,
-          client_data: client_data,
-        });
+
+        console.log("CLient Data: ", client_data);
+
+        setClient_Data([
+          ...client_data,
+          client_data[0]?.content.push(todo_obj),
+        ]);
+        setPersonal_Content({ ...personal_content, client_data: client_data });
         localStorage.setItem(
           "clients_content",
           JSON.stringify(clients_content),
