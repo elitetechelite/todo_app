@@ -170,10 +170,7 @@ export default function Todos() {
           } else {
           }
         });
-        setClient_Data([
-          ...client_data,
-          (client_data[0] = ".content.push(todo_obj)"),
-        ]);
+        setClient_Data([...client_data, client_data[0]=".content.push(todo_obj)"]);
         setPersonal_Content({
           ...personal_content,
           client_data: client_data,
