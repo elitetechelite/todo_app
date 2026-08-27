@@ -155,7 +155,7 @@ export default function Todos() {
           }
         });
         clients_content.forEach((client, i) => {
-          if (client.client_id == my_client_id) {
+          if (client.client_id == logged_user.loggedin_client) {
             console.log("CLient DataCo: ", personal_content);
           } else {
             console.log("CLient DataCo: NULLL");
