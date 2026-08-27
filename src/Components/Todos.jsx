@@ -167,21 +167,18 @@ export default function Todos() {
                 // setPersonal_Content({ ...personal_content, todos: data });
               }
             });
-            setClient_Data([
-              ...client_data,
-              client_data[0]?.content.push(todo_obj),
-            ]);
-            setPersonal_Content({
-              ...personal_content,
-              client_data: client_data,
-            });
-            localStorage.setItem(
-              "clients_content",
-              JSON.stringify(clients_content),
-            );
           } else {
           }
         });
+        setClient_Data([...client_data, client_data[0].content.push(todo_obj)]);
+        setPersonal_Content({
+          ...personal_content,
+          client_data: client_data,
+        });
+        localStorage.setItem(
+          "clients_content",
+          JSON.stringify(clients_content),
+        );
 
         // const updatedClientData = [...client_data];
         // if (updatedClientData[0]) {
