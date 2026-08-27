@@ -155,7 +155,7 @@ export default function Todos() {
           }
         });
 
-        console.log("CLient Data: ", clients_content);
+        console.log("CLient DataCo: ", clients_content);
 
         setClient_Data([
           ...client_data,
