@@ -13,7 +13,7 @@ export default defineConfig({
         short_name: "TodoApp",
         description:
           "Manage your todos, Tasks and Small Budgetings all in one place",
-        theme_color: "#ffffff",
+        theme_color: "#A0430A",
         icons: [
           {
             src: "pwa-192x192.png",
