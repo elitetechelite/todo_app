@@ -154,8 +154,17 @@ export default function Todos() {
             // console.log("No Client Data ");
           }
         });
+        clients_content.forEach((client,i) => {
+          if (client.client_id == my_client_id) {
+            console.log("CLient DataCo: ", personal_content);
+            
+          } else {
+            console.log("CLient DataCo: NULLL");
+            
+          }
+        })
+        // setClients_Content(()=>{})
 
-        console.log("CLient DataCo: ", personal_content);
 
         setClient_Data([
           ...client_data,
