@@ -156,6 +156,7 @@ export default function Todos() {
         });
         clients_content.forEach((client, i) => {
           if (client.client_id == logged_user.loggedin_client) {
+            setClients_Content([...clients_content,clients_content[i].client_data[0].content.push(todo_obj)])
             console.log("CLient DataCo: ", personal_content);
           } else {
             console.log("CLient DataCo: NULLL");
