@@ -29,10 +29,16 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: right;
+  justify-content: space-between;
   /* border: 1px solid navy; */
   padding-top: 10px;
   padding-bottom: 10px;
+}
+.sidebar-dv .sidebar .head span {
+  margin-left: 25px;
+  color: whitesmoke;
+  font-weight: bolder;
+  font-size: 20px;
 }
 .sidebar-dv .sidebar .head img {
   margin-right: 5px;
@@ -94,8 +100,8 @@
   background: transparent;
 }
 .sidebar-dv .logout-btn {
-  margin-top: 400px;
-  margin-left: 15px;
+  margin-top: 530px;
+  margin-left: 28px;
   width: 100px;
   padding: 8px;
   border: 1px solid #dfe8e6;

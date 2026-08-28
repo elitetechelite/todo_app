@@ -4,12 +4,28 @@ import todos_icon from "../assets/icons/todos.png";
 import budget_icon from "../assets/icons/budget.png";
 import tasks_icon from "../assets/icons/tasks.png";
 import "./comp_tyles/sidebar.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function Sidebar() {
   const [card, setCard] = useState("todos");
   // const [cardLocation, setCardLocation]=useState
   const navigate = useNavigate();
+  const [username, setUserName] = useState("");
+  const [logged_in_user, setLogged_In_User] = useState(
+    JSON.parse(localStorage.getItem("login_meta_data")),
+  );
+  const [clients_data, setClients_Data] = useState(
+    JSON.parse(localStorage.getItem("clients_data")),
+  );
+
+  useEffect(() => {
+    clients_data.forEach((client) => {
+      if (client.client_id == logged_in_user.loggedin_client) {
+        setUserName(client.client_name);
+      }
+    });
+  }, []);
+
   function closeSideBarDv() {
     let sidebar_dv = document.querySelector(".sidebar-dv");
     sidebar_dv.style.width = "0%";
@@ -29,6 +45,7 @@ export default function Sidebar() {
     <div className="sidebar-dv">
       <div className="sidebar">
         <div className="head">
+          <span>Hi {username.split(" ")[0]} !</span>
           <img
             className="icon"
             onClick={closeSideBarDv}
@@ -60,7 +77,9 @@ export default function Sidebar() {
               </Link>
             </nav>
           </div>
-          <button className="logout-btn" onClick={handleLogOut}>Logout</button>
+          <button className="logout-btn" onClick={handleLogOut}>
+            Logout
+          </button>
           {/* </BrowserRouter> */}
         </div>
       </div>
