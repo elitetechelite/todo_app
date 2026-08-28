@@ -393,7 +393,7 @@ export default function Todos() {
         <div className="search-input">
           <input type="text" placeholder="Todo" />
         </div>
-        <button onClick={addTodoBtn}>Add Todo {/* {todo_save_flag} */}</button>
+        <button onClick={addTodoBtn}>+{" "} Add Todo {/* {todo_save_flag} */}</button>
       </div>
       <div className="second">
         <div className="todo-cards">

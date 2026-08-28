@@ -79,7 +79,7 @@
   /* height: 17px; */
   border-radius: 50%;
   padding: 4px;
-  background: gray;
+  background: rgba(85, 12, 232, 0.138);
   cursor: pointer;
   transition: 0.2s all;
   -webkit-tap-highlight-color: red;
@@ -105,9 +105,16 @@
   width: 100px;
   padding: 8px;
   border: 1px solid #dfe8e6;
-  background: #a0430a;
+  background: #a07a0a48;
   color: #dfe8e6;
   border-radius: 0.4em;
 
   transition: all 0.2s ease-in-out;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
 }
+  .sidebar-dv .logout-btn img {
+    width:15px;
+  }

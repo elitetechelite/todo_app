@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import "./register_login.css";
-import register_pic from "../assets/icons/tick.png";
-import login_pic from "../assets/icons/tick.png";
-import user_pic from "../assets/icons/tick.png";
-import email_pic from "../assets/icons/tick.png";
-import password_pic from "../assets/icons/tick.png";
+import register_pic from "../assets/icons/create_account.png";
+import login_pic from "../assets/icons/login.png";
+import user_pic from "../assets/icons/user.png";
+import email_pic from "../assets/icons/email.png";
+import password_pic from "../assets/icons/password.png";
 
 export function genrateClientID() {
   let randNo = Math.floor(Math.random() * 901290);

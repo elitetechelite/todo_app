@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import "./register_login.css";
 import { generateDateTime, genrateClientID } from "./Register";
-import register_pic from "../assets/icons/tick.png";
-import login_pic from "../assets/icons/tick.png";
-import email_pic from "../assets/icons/tick.png";
-import password_pic from "../assets/icons/tick.png";
+import register_pic from "../assets/icons/create_account.png";
+import login_pic from "../assets/icons/login.png";
+import email_pic from "../assets/icons/email.png";
+import password_pic from "../assets/icons/password.png";
 
 export function loginCheck() {
   let loginMetaData = JSON.parse(localStorage.getItem("login_meta_data")) || {};

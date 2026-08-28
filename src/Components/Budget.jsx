@@ -351,7 +351,7 @@ export default function Budget() {
         <div className="search-input">
           <input type="text" placeholder="Item" />
         </div>
-        <button onClick={addItemBtn}>Add Item</button>
+        <button onClick={addItemBtn}>+ Add Item</button>
       </div>
       <div className="second">
         <div className="head">

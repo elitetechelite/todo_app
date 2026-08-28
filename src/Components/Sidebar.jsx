@@ -3,6 +3,7 @@ import close_sidebar_icon from "../assets/icons/close_sidebar.png";
 import todos_icon from "../assets/icons/todos.png";
 import budget_icon from "../assets/icons/budget.png";
 import tasks_icon from "../assets/icons/tasks.png";
+import logout_icon from "../assets/icons/logout.png";
 import "./comp_tyles/sidebar.css";
 import { useEffect, useState } from "react";
 
@@ -78,7 +79,8 @@ export default function Sidebar() {
             </nav>
           </div>
           <button className="logout-btn" onClick={handleLogOut}>
-            Logout
+            Logout 
+            <img src={logout_icon} alt="" />
           </button>
           {/* </BrowserRouter> */}
         </div>

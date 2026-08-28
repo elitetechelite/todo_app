@@ -318,7 +318,7 @@ export default function Tasks() {
         <div className="search-input">
           <input type="text" onChange={handleSearch} placeholder="Task" />
         </div>
-        <button onClick={addTaskBtn}>Add Task</button>
+        <button onClick={addTaskBtn}>+ Add Task</button>
       </div>
       <div className="second">
         <div className="todo-cards">
