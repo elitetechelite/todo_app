@@ -393,7 +393,9 @@ export default function Todos() {
         <div className="search-input">
           <input type="text" placeholder="Todo" />
         </div>
-        <button onClick={addTodoBtn}>+{" "} Add Todo {/* {todo_save_flag} */}</button>
+        <button onClick={addTodoBtn}>
+          + Add Todo {/* {todo_save_flag} */}
+        </button>
       </div>
       <div className="second">
         <div className="todo-cards">
@@ -438,9 +440,7 @@ export default function Todos() {
                   <img
                     className={`todo_statusIMG ${i}_${todo.todo_id} ${todo.todo_name} ${todo.todo_do_date}`}
                     onClick={changeTodoStatus}
-                    src={
-                      todo.todo_status !== "completed" ? null : status_completed
-                    }
+                    src={todo.todo_status !== "" ? null : status_completed}
                   />
                 </div>
               </div>
