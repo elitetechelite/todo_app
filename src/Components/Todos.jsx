@@ -440,7 +440,9 @@ export default function Todos() {
                   <img
                     className={`todo_statusIMG ${i}_${todo.todo_id} ${todo.todo_name} ${todo.todo_do_date}`}
                     onClick={changeTodoStatus}
-                    src={todo.todo_status !== "" ? null : status_completed}
+                    src={
+                      todo.todo_status !== "completed" ? "" : status_completed
+                    }
                   />
                 </div>
               </div>
