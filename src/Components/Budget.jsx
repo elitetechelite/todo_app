@@ -394,8 +394,16 @@ export default function Budget() {
                   <span
                     id="item_status_sp"
                     className={`item_status_sp ${i}_${item.item_id} ${item.item_name} ${item.item_cost}`}
+                    style={{
+                      background:
+                        item.item_status == "completed"
+                          ? "#03b27872"
+                          : "#4003b272",
+                    }}
                   >
-                    {item.item_status}
+                    {item.item_status == "completed"
+                      ? "Bought"
+                      : item.item_status}
                   </span>
                   {/* <button
                     onClick={changeItemStatus}

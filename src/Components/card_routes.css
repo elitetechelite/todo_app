@@ -474,6 +474,20 @@
 
 /* ---- UNIVERSAL STYLES */
 
+
+.second .todo-cards .card .actns span {
+  text-transform: capitalize;
+  /* border: 1px solid red; */
+  height: 20px;
+  border-radius: 10px;
+  padding-left: 5px;
+  padding-right: 5px;
+  /* background: #03b27872; */
+  /* background: #4003b272; */
+}
+
+
+
 .first {
   width: 95%;
   height: 10%;

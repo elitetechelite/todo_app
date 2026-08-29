@@ -429,8 +429,14 @@ export default function Todos() {
                   <span
                     className={`todo_status_sp ${i}_${todo.todo_id} ${todo.todo_name} ${todo.todo_do_date}`}
                     id="todo_status_sp"
+                    style={{
+                      background:
+                        todo.todo_status == "completed"
+                          ? "#03b27872"
+                          : "#4003b272",
+                    }}
                   >
-                    {todo.todo_status}
+                    {todo.todo_status == "completed" ? "done" : "pending"}
                   </span>
                   {/* <button
                     className={`todo_statusBTN ${i}_${todo.todo_id} ${todo.todo_name} ${todo.todo_do_date}`}
