@@ -85,6 +85,26 @@ export default function Budget() {
             : (clients_content[i].client_data[2].content[index].item_status =
                 "pending"),
         ]);
+        if (
+          clients_content[i].client_data[2].content[index].item_status ==
+          "completed"
+        ) {
+          setItem_Count({
+            ...item_count,
+            total_amout: (item_count.total_amout -=
+              clients_content[i].client_data[2].content[index].item_cost),
+          });
+        } else if (
+          clients_content[i].client_data[2].content[index].item_status ==
+          "pending"
+        ) {
+          setItem_Count({
+            ...item_count,
+            total_amout: (item_count.total_amout += Number(
+              clients_content[i].client_data[2].content[index].item_cost,
+            )),
+          });
+        }
         console.log("CLient DataCo: ", personal_content);
       } else {
         console.log("CLient DataCo: NULLL");
