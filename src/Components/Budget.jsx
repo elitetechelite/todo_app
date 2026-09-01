@@ -355,13 +355,13 @@ export default function Budget() {
     let Total_Amount = 0;
     let Total_Items = 0;
     items_avail[0].map((item, i) => {
-      Total_Amount += Number(item.item_cost);
       Total_Items = i;
-      if (item.item_status != "completed") {
+      if (item.item_status == "pending") {
+        Total_Amount += Number(item.item_cost);
         setItem_Count({
           ...item_count,
           total_items: Total_Items + 1,
-          total_amout: Total_Amount,
+          total_amout: Total_Amount, //(item_count.total_amout += Number(item.item_cost)),
         });
       }
     });
