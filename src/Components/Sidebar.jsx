@@ -12,13 +12,29 @@ export default function Sidebar() {
   // const [cardLocation, setCardLocation]=useState
   const navigate = useNavigate();
   const [username, setUserName] = useState("");
-  const [logged_in_user, setLogged_In_User] = useState(
-    JSON.parse(localStorage.getItem("login_meta_data")),
-  );
-  const [clients_data, setClients_Data] = useState(
-    JSON.parse(localStorage.getItem("clients_data")),
-  );
+  // const [logged_in_user, setLogged_In_User] = useState(
+  //   JSON.parse(localStorage.getItem("login_meta_data")),
+  // );
+  // const [clients_data, setClients_Data] = useState(
+  //   JSON.parse(localStorage.getItem("clients_data")),
+  // );
+  const [logged_in_user, setLogged_In_User] = useState(() => {
+    try {
+      return JSON.parse(localStorage.getItem("login_meta_data")) || {};
+    } catch (e) {
+      console.error("Error parsing login_meta_data from localStorage:", e);
+      return {}; // Fallback to an empty object
+    }
+  });
 
+  const [clients_data, setClients_Data] = useState(() => {
+    try {
+      return JSON.parse(localStorage.getItem("clients_data")) || [];
+    } catch (e) {
+      console.error("Error parsing clients_data from localStorage:", e);
+      return []; // Fallback to an empty array
+    }
+  });
   useEffect(() => {
     clients_data.forEach((client) => {
       if (client.client_id == logged_in_user.loggedin_client) {
@@ -79,7 +95,7 @@ export default function Sidebar() {
             </nav>
           </div>
           <button className="logout-btn" onClick={handleLogOut}>
-            Logout 
+            Logout
             <img src={logout_icon} alt="" />
           </button>
           {/* </BrowserRouter> */}
